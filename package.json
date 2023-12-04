@@ -1,0 +1,19 @@
+{
+  "name": "digital-store-api",
+  "version": "1.0.0",
+  "description": "Backend para a Digital Store",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon index.js",
+    "build": "",
+    "lint": "",
+    "test": ""
+  },
+  "author": "ajuteixeira",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2"
+  }
+}
