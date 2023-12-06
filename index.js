@@ -30,6 +30,7 @@ const port = 8000;
 
 app.use(express.json());
 app.use(cors());
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.send("Bem-vindo à API da Digital Store");
@@ -62,7 +63,6 @@ app.get("/", (req, res) => {
 app.use("/marcas", brandRoutes); // recebe dois parametros: base da rota e o arquivo importado
 app.use("/categorias", categoriesRoutes);
 app.use("/generos", gendersRoutes);
-app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.listen(port, () => {
   console.log(`Servidor de pé na url: http://localhost:${port}`);
