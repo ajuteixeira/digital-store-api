@@ -1,0 +1,26 @@
+{
+  "Brand": {
+    "type": "object",
+    "properties": {
+      "brand_id": "integer",
+      "brand_name": "string",
+      "brand_status": "integer"
+    }
+  },
+  "Category": {
+    "type": "object",
+    "properties": {
+      "category_id": "integer",
+      "category_name": "string",
+      "category_status": "integer"
+    }
+  },
+  "Gender": {
+    "type": "object",
+    "properties": {
+      "gender_id": "integer",
+      "gender_name": "string",
+      "gender_status": "integer"
+    }
+  }
+}
