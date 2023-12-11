@@ -28,8 +28,8 @@ const gendersRoutes = require("./routes/gendersRoutes");
 const app = express();
 const port = 8000;
 
-app.use(express.json());
-app.use(cors());
+app.use(express.json()); //middleware que converte o corpo da requisição pra json
+app.use(cors()); // middleware pra api aceitar requisições que venham de outros domínios
 // app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
@@ -39,8 +39,8 @@ app.get("/", (req, res) => {
 /**
  * @swagger
  * /marcas:
- * get: 
- *  tags: 
+ * get:
+ *  tags:
  *    - Marcas
  *  description:
  *    - Traz a lista d emarcas
@@ -63,6 +63,10 @@ app.get("/", (req, res) => {
 app.use("/marcas", brandRoutes); // recebe dois parametros: base da rota e o arquivo importado
 app.use("/categorias", categoriesRoutes);
 app.use("/generos", gendersRoutes);
+
+app.all("*", (req, res) => {
+  res.status(404).send("Rota não encontrada");
+});
 
 app.listen(port, () => {
   console.log(`Servidor de pé na url: http://localhost:${port}`);
