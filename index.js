@@ -1,25 +1,25 @@
 const express = require("express"); //pega tudo que tem no pacote do express e coloca nessa variável
 const cors = require("cors");
-const swaggerUI = require("swagger-ui-express");
-const swaggerJSDoc = require("swagger-jsdoc");
+// const swaggerUI = require("swagger-ui-express");
+// const swaggerJSDoc = require("swagger-jsdoc");
 
-let swaggerDefinition = {
-  info: {
-    title: "Digital Store API",
-    version: "1.0.0",
-    description: "Documentação da API",
-  },
-  components: {
-    schemas: require("./schemas.json"),
-  },
-};
+// let swaggerDefinition = {
+//   info: {
+//     title: "Digital Store API",
+//     version: "1.0.0",
+//     description: "Documentação da API",
+//   },
+//   components: {
+//     schemas: require("./schemas.json"),
+//   },
+// };
 
-let options = {
-  swaggerDefinition,
-  apis: ["./routes/*.js"],
-};
+// let options = {
+//   swaggerDefinition,
+//   apis: ["./routes/*.js"],
+// };
 
-let swaggerSpec = swaggerJSDoc(options);
+// let swaggerSpec = swaggerJSDoc(options);
 
 const brandRoutes = require("./routes/brandRoutes");
 const categoriesRoutes = require("./routes/categoriesRoutes");
@@ -30,7 +30,7 @@ const port = 8000;
 
 app.use(express.json());
 app.use(cors());
-app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+// app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.get("/", (req, res) => {
   res.send("Bem-vindo à API da Digital Store");
