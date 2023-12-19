@@ -24,6 +24,7 @@ const cors = require("cors");
 const brandRoutes = require("./routes/brandRoutes");
 const categoriesRoutes = require("./routes/categoriesRoutes");
 const gendersRoutes = require("./routes/gendersRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 const port = 8000;
@@ -59,6 +60,16 @@ app.get("/", (req, res) => {
  *        schema:
  *            $ref: '#components/schemas/Brand'
  */
+
+app.use("/user", userRoutes);
+
+const hasToken = (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.send("Token é necessário!");
+  }
+  next();
+};
+app.use(hasToken);
 
 app.use("/marcas", brandRoutes); // recebe dois parametros: base da rota e o arquivo importado
 app.use("/categorias", categoriesRoutes);
