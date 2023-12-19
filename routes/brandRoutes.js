@@ -14,12 +14,12 @@ router.post("/", async (req, res) => {
   res.send(await controller.criar(req.body));
 });
 
-router.post("/:id", (req, res) => {
-  res.send(`edita a marca de id ${req.params.id}`);
+router.post("/:id", async (req, res) => {
+  res.send(await controller.editar(req.params.id, req.body));
 });
 
-router.delete("/:id", (req, res) => {
-  res.send(`deleta a marca de id ${req.params.id}`);
+router.delete("/:id", async (req, res) => {
+  res.send(await controller.deletar(req.params.id));
 });
 
 module.exports = router; //exporta pra usar em outro arquivo
