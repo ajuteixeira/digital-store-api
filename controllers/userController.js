@@ -16,7 +16,7 @@ async function logar(data) {
     if (result.length > 0) {
       return {
         type: "success",
-        token: result[0],
+        ...result[0],
       };
     } else {
       return {
