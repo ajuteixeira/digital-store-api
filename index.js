@@ -1,5 +1,7 @@
 const express = require("express"); //pega tudo que tem no pacote do express e coloca nessa variável
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
+
 
 const brandRoutes = require("./routes/brandRoutes");
 const categoriesRoutes = require("./routes/categoriesRoutes");
