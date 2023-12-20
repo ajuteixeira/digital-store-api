@@ -32,6 +32,14 @@ async function logar(data) {
   }
 }
 
+async function checkToken(token) {
+  const result = await DB.execute(
+    `SELECT * FROM ${tabela} WHERE token = '${token}';`
+  );
+  return result;
+}
+
 module.exports = {
   logar,
+  checkToken,
 };
